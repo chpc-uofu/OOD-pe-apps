@@ -1,0 +1,18 @@
+---
+name: Jupyter Notebook
+category: Interactive Apps
+subcategory: Servers
+role: batch_connect
+description: |
+  This app will launch a [Jupyter Notebook] server using [Python] on [Redwood] or on a [Bristlecone node].
+
+  To start the job promptly, use redwood-shared-short account and partition will be added in near future. 
+
+  [GPU specification] is optional for the clusters and partitions that have them.
+
+  [Jupyter Notebook]: https://jupyter.org/
+  [Python]: https://www.python.org/
+  [Redwood]: https://www.chpc.utah.edu/documentation/guides/redwood.php
+  [GPU specification]: https://www.chpc.utah.edu/documentation/guides/gpus-accelerators.php#overview
+  [Bristlecone node]: https://www.chpc.utah.edu/documentation/guides/frisco-nodes.php
+

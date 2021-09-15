@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+# source Lmod if it's not already sourced - cron starts in clean environment
+if [ -z "$LMOD_VERSION" ]; then
+  source /etc/profile.d/chpc.sh
+fi
+# Set working directory to home directory
+cd "${HOME}"
+
+#
+# Start Jupyter Notebook Server
+#
+<%= context.custom_environment.gsub /\r\n?/, "\n" %>
+
+# Workaround for directory permission error
+#unset XDG_RUNTIME_DIR
+#export XDG_RUNTIME_DIR=""
+
+# List available kernels for debugging purposes
+set -x
+jupyter kernelspec list
+{ set +x; } 2>/dev/null
+echo "TTT - $(date)"
+
+#jupyter notebook --generate-config 
+# Launch the Jupyter Notebook Server
+# jupyter notebook --config="${CONFIG_FILE}" --debug
+jupyter notebook --config="${CONFIG_FILE}" 

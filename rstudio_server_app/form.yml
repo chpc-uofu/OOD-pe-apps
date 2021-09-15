@@ -1,0 +1,68 @@
+---
+title: "RStudio server"
+attributes:
+  cluster:
+    widget: "select"
+    options:
+      - "redwood"
+    help: |
+      Select the Redwood or Bristlecone node to create this session on.
+  num_cores:
+    widget: "number_field"
+    label: "Number of cores"
+    value: 1
+    help: "Up to 64. See [Redwood help page](https://www.chpc.utah.edu/documentation/guides/redwood.php) for node core counts."
+    min: 1
+    max: 64
+  bc_num_hours:
+    label: "Number of hours"
+    value: 1   
+    min: 1
+    max: 336
+    help: "Maximum wall time on redwood-shared-short is 8 hours, general nodes 72 hours, owner nodes 14 days."
+  bc_account:
+    label: "Account"
+    value: ""
+  bc_queue:
+    label: "Partition"
+    value: "redwood"
+  version:
+    widget: select
+    label: "R version"
+    help: "This defines the version of R you want to load. CHPC build denotes [CHPC installed R](https://www.chpc.utah.edu/documentation/software/r-language.php), as opposed to other versions that are obtained from [Rocker containers](https://www.rocker-project.org). The latter are better for more complex computing environments, e.g. bioinformatics and geospatial applications.<br>See output from '.libPaths()' function for the location of the user installed libraries."
+    options:
+      - [ "R 4.0.2 CHPC build", "4.0.2"]
+      - [ "R 4.1.1 CHPC build", "4.1.1"]
+      - [ "R 4.0.2 Basic packages", "4.0.2-basic"]
+      - [ "R 4.0.3 Bioconductor packages", "4.0.3-bioconductor"]
+      - [ "R 4.0.3 Geospatial packages", "4.0.3-geospatial"]
+      - [ "R 3.6.2 Basic packages", "3.6.2-basic"]
+      - [ "R 3.6.2 Bioconductor packages", "3.6.2-bioconductor"]
+      - [ "R 3.6.2 Geospatial packages", "3.6.2-geospatial"]
+  memtask:
+    widget: "text_field"
+    value: "default"
+    label: "Memory per job"
+    help: |
+      - **default** - Use default, 4 GB per task.
+      - **512M** - Use 512 MB.
+      - **128G** - Use 128 GB, this is the maximum on notchpeak-shared-short.
+  gpu_type:
+    label: "GPU type:count"
+    help: |
+      - GPU type:
+          - **none** - No GPU
+          - **1080ti** - GeForce 1080 Ti GPU(s) (single precision)
+      - GPU count: 
+          - Specify count with :count after the GPU name (e.g. **1080ti:2**)
+    value: "none"
+form:
+  - cluster
+  - version
+  - num_cores
+  - bc_num_hours
+  - memtask
+  - bc_account
+  - bc_queue
+  - gpu_type
+  - bc_email_on_started

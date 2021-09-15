@@ -1,0 +1,17 @@
+---
+name: MATLAB 
+category: Interactive Apps
+subcategory: IDEs
+role: batch_connect
+description: |
+  This app will launch a [MATLAB] GUI on [Redwood] or on a [Bristlecone node]. You will be able
+  to interact with the MATLAB GUI through a VNC session.
+
+  To start the job promptly, redwood-shared-short account and partition will be added in near future. 
+
+  [GPU specification] is optional for the partitions that have them.
+
+  [MATLAB]: https://www.mathworks.com/products/matlab.html
+  [Redwood]: https://www.chpc.utah.edu/documentation/guides/redwood.php
+  [Bristlecone node]: https://www.chpc.utah.edu/documentation/guides/frisco-nodes.php
+  [GPU specification]: https://www.chpc.utah.edu/documentation/guides/gpus-accelerators.php#overview
